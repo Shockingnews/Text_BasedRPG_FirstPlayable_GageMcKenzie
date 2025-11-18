@@ -23,7 +23,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static int placeHolder = 0;
 
-        static string path = @"Map\Map.txt";
+        static string path = @"Map.txt";
 
         static char[] border = new char[]
         {
@@ -51,30 +51,24 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             //Console.WriteLine(map.GetLength(1)*2);
             //Console.WriteLine(map.GetLength(0) * 2);
 
-            Console.CursorVisible = false;
+            
 
+            Console.CursorVisible = false;
+            Draw();
             while (alive)
             {
                 playerinput();
                 Update();
                 Draw();
 
-                Thread.Sleep(90);
+                
                 
             }
             
 
         }
 
-        static void Draw()
-        {
-            
-            Console.SetCursorPosition(0, 0);
-            Display();
-            Console.SetCursorPosition(playerPosx, playerPosy);
-            Console.Write("o");
-
-        }
+        
 
         static void Display()
         {
@@ -197,9 +191,14 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             playerInputx = 0;
             playerInputy = 0;
 
-            
 
             ConsoleKeyInfo input = Console.ReadKey(true);
+            //ConsoleKeyInfo input = new ConsoleKeyInfo();
+
+            //while (Console.KeyAvailable)
+            //{
+            //    input = Console.ReadKey(true);
+            //}
             
 
             if(input.Key == ConsoleKey.W)
@@ -249,8 +248,18 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             {
                 playerPosy -= 1;
             }
+            
         }
+        static void Draw()
+        {
 
+            Console.SetCursorPosition(0, 0);
+            Display();
+            Console.SetCursorPosition(playerPosx, playerPosy);
+            Console.Write("o");
+            
+
+        }
         void enemymovement()
         {
 
