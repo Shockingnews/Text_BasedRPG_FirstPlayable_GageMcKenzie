@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
@@ -21,6 +22,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int playerInputy = 0;
 
         static int placeHolder = 0;
+
+        static string path = @"Map\Map.txt";
 
         static char[] border = new char[]
         {
@@ -47,11 +50,16 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         {
             //Console.WriteLine(map.GetLength(1)*2);
             //Console.WriteLine(map.GetLength(0) * 2);
+
+            Console.CursorVisible = false;
+
             while (alive)
             {
                 playerinput();
                 Update();
                 Draw();
+
+                Thread.Sleep(90);
                 
             }
             
@@ -60,10 +68,10 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static void Draw()
         {
-            Console.Clear();
+            
             Console.SetCursorPosition(0, 0);
             Display();
-            Console.SetCursorPosition(playerPosx, playerPosx);
+            Console.SetCursorPosition(playerPosx, playerPosy);
             Console.Write("o");
 
         }
@@ -192,16 +200,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             
 
             ConsoleKeyInfo input = Console.ReadKey(true);
-            if (playerPosx == player_xMax || playerPosx == player_xMin || playerPosx +1 == '|' || playerPosx - 1 == '|')
-            {
-                alive = false;
-                return;
-            }
-            if (playerPosy == player_yMax || playerPosy == player_yMin || playerPosy + 1 == '-' || playerPosy - 1 == '-')
-            {
-                alive = false;
-                return;
-            }
+            
 
             if(input.Key == ConsoleKey.W)
             {
@@ -233,6 +232,23 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         {
             playerPosx += playerInputx;
             playerPosy += playerInputy;
+
+            if (playerPosy == player_yMin)
+            {
+                playerPosy = 1;
+            }
+            if (playerPosx == player_xMin)
+            {
+                playerPosx = 1;
+            }
+            if (playerPosx == player_xMax)
+            {
+                playerPosx -= 1;
+            }
+            if (playerPosy == player_yMax)
+            {
+                playerPosy -= 1;
+            }
         }
 
         void enemymovement()

@@ -6,3 +6,12 @@ C:\Users\w0526843\Text-BasedRPG - FirstPlayable_GageMcKenzie\Text-BasedRPG - Fir
 C:\Users\w0526843\Text-BasedRPG - FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe
 C:\Users\w0526843\Text-BasedRPG - FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.pdb
 C:\Users\w0526843\Text-BasedRPG - FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe.config
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Debug\Map.txt
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe.config
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.pdb
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj.AssemblyReference.cache
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe.config
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj.CoreCompileInputs.cache
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe
+C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Debug\Text-BasedRPG - FirstPlayable_GageMcKenzie.pdb

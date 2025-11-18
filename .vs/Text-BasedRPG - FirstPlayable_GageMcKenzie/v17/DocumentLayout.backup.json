@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\w0526843\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\",
+  "WorkspaceRootPath": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|c:\\users\\w0526843\\text-basedrpg - firstplayable_gagemckenzie\\text-basedrpg - firstplayable_gagemckenzie\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|c:\\users\\w0526843\\text_basedrpg_firstplayable_gagemckenzie\\text-basedrpg - firstplayable_gagemckenzie\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|solutionrelative:text-basedrpg - firstplayable_gagemckenzie\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|c:\\users\\w0526843\\text_basedrpg_firstplayable_gagemckenzie\\text-basedrpg - firstplayable_gagemckenzie\\map.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|solutionrelative:text-basedrpg - firstplayable_gagemckenzie\\map.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +42,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Map.txt",
+              "DocumentMoniker": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
+              "RelativeDocumentMoniker": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
+              "ToolTip": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
+              "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-18T18:27:54.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\w0526843\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
               "RelativeDocumentMoniker": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "ToolTip": "C:\\Users\\w0526843\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
+              "ToolTip": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
               "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAqwDQAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAD0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T12:05:20.137Z",
               "EditorCaption": ""
