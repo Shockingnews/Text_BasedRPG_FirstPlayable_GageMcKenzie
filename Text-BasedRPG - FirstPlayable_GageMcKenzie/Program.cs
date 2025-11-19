@@ -23,8 +23,12 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int enemyPosx = 10;
         static int enemyPosy = 10;
         static int turns = 0;
+        //static int playerPrex = 7;
+        //static int playerPrey = 7;
 
         static int placeHolder = 0;
+
+        static char water = '~';
 
         static string path = @"Map.txt";
 
@@ -233,6 +237,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         }
         static void Update()
         {
+
+
             playerPosx += playerInputx;
             playerPosy += playerInputy;
 
@@ -256,11 +262,9 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             {
                 enemymovement();
             }
-            if (playerPosy == '~')
-            {
-
-            }
             
+            
+
         }
         static void Draw()
         {
@@ -268,7 +272,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             Console.SetCursorPosition(0, 0);
             Display();
             Console.SetCursorPosition(playerPosx, playerPosy);
-            Console.Write("o");
+            //waterPos();
+            Console.Write('o');
             Console.SetCursorPosition(enemyPosx, enemyPosy);
             Console.Write("x");
 
@@ -293,6 +298,19 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             }
             turns = 0;
         }
+        //static void waterPos()
+        //{
+        //    if(playerPosy == water)
+        //    {
+        //        if (playerPosx == water)
+        //        {
+        //            Console.ReadKey(true);
+        //            Console.Clear();
+        //            Console.Write("hi");
+        //        }
+        //    }
+            
+        //}
 
 
     }
