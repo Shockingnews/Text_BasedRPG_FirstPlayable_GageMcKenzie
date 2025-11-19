@@ -15,6 +15,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int player_xMin = 0;
 
         static bool alive = true;
+        static bool playerTurn;
+        static bool enemyTurn;
 
         static int playerPosx = 4;
         static int playerPosy = 6;
@@ -23,8 +25,12 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int enemyPosx = 10;
         static int enemyPosy = 10;
         static int turns = 0;
-        //static int playerPrex = 7;
-        //static int playerPrey = 7;
+        static int playerPrex = playerPosx;
+        static int playerPrey = playerPosy;
+        static int enemyPrex = enemyPosx;
+        static int enemyPrey = enemyPosy;
+        static int playerHealth = 10;
+        static int enemyHealth = 10;
 
         static int placeHolder = 0;
 
@@ -234,10 +240,12 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                 turns += 1;
             }
             
+            
         }
         static void Update()
         {
-
+            playerPrex = playerPosx;
+            playerPrey = playerPosy;
 
             playerPosx += playerInputx;
             playerPosy += playerInputy;
@@ -258,12 +266,36 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             {
                 playerPosy -= 1;
             }
+            playerTurn = true;
+            if (playerTurn == true)
+            {
+                if (playerPosx == enemyPosx && playerPosy == enemyPosy)
+                {
+                    playerPosy = playerPrey;
+                    playerPosx = playerPrex;
+                    enemyHealth -= 1;
+                    
+                }
+            }
+
             if (turns == 2)
             {
+                enemyTurn = true;
                 enemymovement();
+                playerTurn = false;
+            }
+            if (playerTurn == true)
+            {
+                if (playerPosx == enemyPosx && playerPosy == enemyPosy)
+                {
+                    playerPosy = playerPrey;
+                    playerPosx = playerPrex;
+                    enemyHealth -= 1;
+                }
             }
             
-            
+
+
 
         }
         static void Draw()
@@ -280,7 +312,9 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         }
         static void enemymovement()
         {
-            if(enemyPosx > playerPosx)
+            enemyPrex = enemyPosx;
+            enemyPrey = enemyPosy;
+            if (enemyPosx > playerPosx)
             {
                 enemyPosx -= 1;
             }
@@ -296,6 +330,17 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             {
                 enemyPosy += 1;
             }
+            
+            if (enemyTurn == true)
+            {
+                if (enemyPosy == playerPosy && enemyPosx == playerPosx)
+                {
+                    enemyPosx = enemyPrex;
+                    enemyPosy = enemyPrey;
+                    playerHealth -= 1;
+                }
+            }
+            
             turns = 0;
         }
         //static void waterPos()
