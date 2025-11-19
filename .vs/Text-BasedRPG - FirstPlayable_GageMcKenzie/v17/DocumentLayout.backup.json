@@ -50,8 +50,7 @@
               "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-11-18T18:27:54.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T18:27:54.787Z"
             },
             {
               "$type": "Document",
@@ -59,9 +58,9 @@
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
               "RelativeDocumentMoniker": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "ToolTip": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAQwMIAAAAjAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs*",
+              "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs*",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAQwP4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T12:05:20.137Z",
               "EditorCaption": ""

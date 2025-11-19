@@ -20,6 +20,9 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int playerPosy = 6;
         static int playerInputx = 0;
         static int playerInputy = 0;
+        static int enemyPosx = 10;
+        static int enemyPosy = 10;
+        static int turns = 0;
 
         static int placeHolder = 0;
 
@@ -204,26 +207,27 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             if(input.Key == ConsoleKey.W)
             {
                 playerInputy -= 1;
+                turns += 1;
                 
             }
 
             if (input.Key == ConsoleKey.S)
             {
                 playerInputy += 1;
-                
+                turns += 1;
             }
 
             if (input.Key == ConsoleKey.A)
             {
                 playerInputx -= 1;
-                
+                turns += 1;
             }
 
             
             if (input.Key == ConsoleKey.D)
             {
                 playerInputx += 1;
-                
+                turns += 1;
             }
             
         }
@@ -248,6 +252,14 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             {
                 playerPosy -= 1;
             }
+            if (turns == 2)
+            {
+                enemymovement();
+            }
+            if (playerPosy == '~')
+            {
+
+            }
             
         }
         static void Draw()
@@ -257,12 +269,29 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             Display();
             Console.SetCursorPosition(playerPosx, playerPosy);
             Console.Write("o");
-            
+            Console.SetCursorPosition(enemyPosx, enemyPosy);
+            Console.Write("x");
 
         }
-        void enemymovement()
+        static void enemymovement()
         {
-
+            if(enemyPosx > playerPosx)
+            {
+                enemyPosx -= 1;
+            }
+            if (enemyPosx < playerPosx)
+            {
+                enemyPosx += 1;
+            }
+            if ( enemyPosy > playerPosy)
+            {
+                enemyPosy -= 1;
+            }
+            if (enemyPosy < playerPosy)
+            {
+                enemyPosy += 1;
+            }
+            turns = 0;
         }
 
 
