@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 {
     internal class Program
     {
+        static string path = @"Map.txt";
+        static string data = File.ReadAllText(path);
+
         static int player_yMax = 25;
         static int player_yMin = 0;
         static int player_xMax = 61;
@@ -36,7 +40,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static char water = '~';
 
-        static string path = @"Map.txt";
+        
 
         static char[] border = new char[]
         {
@@ -63,7 +67,9 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         {
             //Console.WriteLine(map.GetLength(1)*2);
             //Console.WriteLine(map.GetLength(0) * 2);
-
+            
+            
+            //Console.Write(data.Length);
             
 
             Console.CursorVisible = false;
@@ -81,7 +87,18 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         }
 
-        
+        static void MapDisplay()
+        {
+            for(int i =0; i < data.Length; i++)
+            {
+                if (data[i] == '`')
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(data[i]);
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            }
+        }
 
         static void Display()
         {

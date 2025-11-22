@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\",
+  "WorkspaceRootPath": "C:\\Users\\mgc72\\Documents\\unity project\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|c:\\users\\w0526843\\text_basedrpg_firstplayable_gagemckenzie\\text-basedrpg - firstplayable_gagemckenzie\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|c:\\users\\mgc72\\documents\\unity project\\text_basedrpg_firstplayable_gagemckenzie\\text-basedrpg - firstplayable_gagemckenzie\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|solutionrelative:text-basedrpg - firstplayable_gagemckenzie\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\text-basedrpg - firstplayable_gagemckenzie\\map.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|C:\\Users\\mgc72\\Documents\\unity project\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\text-basedrpg - firstplayable_gagemckenzie\\map.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{981A64A9-CB8C-4BF4-BA8D-52F88935514B}|Text-BasedRPG - FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj|solutionrelative:text-basedrpg - firstplayable_gagemckenzie\\map.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -18,49 +18,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Map.txt",
-              "DocumentMoniker": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
+              "DocumentMoniker": "C:\\Users\\mgc72\\Documents\\unity project\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
               "RelativeDocumentMoniker": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
-              "ToolTip": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
+              "ToolTip": "C:\\Users\\mgc72\\Documents\\unity project\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
               "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Map.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-11-18T18:27:54.787Z"
+              "WhenOpened": "2025-11-18T18:27:54.787Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\mgc72\\Documents\\unity project\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
               "RelativeDocumentMoniker": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "ToolTip": "C:\\Users\\w0526843\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs",
-              "ViewState": "AgIAAD8BAAAAAAAAAAAAAFMBAAAaAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\mgc72\\Documents\\unity project\\Text_BasedRPG_FirstPlayable_GageMcKenzie\\Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs*",
+              "RelativeToolTip": "Text-BasedRPG - FirstPlayable_GageMcKenzie\\Program.cs*",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwEcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T12:05:20.137Z",
               "EditorCaption": ""
