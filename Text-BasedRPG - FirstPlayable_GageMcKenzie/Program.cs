@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
+
 using System.Threading.Tasks;
 
 namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
@@ -11,7 +11,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
     internal class Program
     {
         static string path = @"Map.txt";
-        static string data = File.ReadAllText(path);
+        static string[] data = File.ReadAllLines(path);
 
         static int player_yMax = 25;
         static int player_yMin = 0;
@@ -22,6 +22,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static bool playerTurn;
         static bool enemyTurn;
 
+        static int cursoerPosy;
+        static (int, int) playerPos = (5, 6);
         static int playerPosx = 4;
         static int playerPosy = 6;
         static int playerInputx = 0;
@@ -29,8 +31,10 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int enemyPosx = 10;
         static int enemyPosy = 10;
         static int turns = 0;
-        static int playerPrex = playerPosx;
-        static int playerPrey = playerPosy;
+        static int playerPrex = playerPos.Item1;
+        static int playerPrey = playerPos.Item2;
+        static int futureplayerPos;
+        static int futureplayerPosx;
         static int enemyPrex = enemyPosx;
         static int enemyPrey = enemyPosy;
         static int playerHealth = 10;
@@ -40,12 +44,11 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static char water = '~';
 
-        
+        static List<(int, int)> border = new List<(int, int)>();
 
-        static char[] border = new char[]
-        {
-            '-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-'
-        };
+
+
+
         static char[,] map = new char[,] // dimensions defined by following data:
     {
 
@@ -69,7 +72,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             //Console.WriteLine(map.GetLength(0) * 2);
             
             
-            //Console.Write(data.Length);
+            
             
 
             Console.CursorVisible = false;
@@ -80,141 +83,79 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                 Update();
                 Draw();
 
-                
-                
+
+
             }
-            
+
 
         }
 
         static void MapDisplay()
         {
-            for(int i =0; i < data.Length; i++)
-            {
-                if (data[i] == '`')
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(data[i]);
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
+            int mapPosy = 0;
+            int mapPosx = 0;
+            Console.Write('┌');
+            for (int l = 0; l < data[0].Length; l++) 
+            { 
+                Console.Write('-');
             }
-        }
-
-        static void Display()
-        {
-           
-                Console.Write('┌');
-                Console.Write(border);
-                Console.Write(border);
-                Console.Write("--┐");
-                placeHolder += 1;
-                Console.SetCursorPosition(0, placeHolder);
-                for (int i = 0; i < map.GetLength(0); i++)
+            Console.Write("┐");
+            Console.WriteLine(" ");
+            for (int i = 0; i < data.GetLength(0); i++)
+            {
+                mapPosx += 1;
+                //border.Add((i, cursoerPosy));
+                Console.Write('|');
+                for (int j = 0; j < data[i].Length; j++)
                 {
-                    for (int j = 0; j < map.GetLength(1); j++)
+                    mapPosy += 1;
+                    if (data[i][j] == '`')
                     {
-
-
-                        if (j == 0)
-                        {
-
-                            Console.SetCursorPosition(0, placeHolder);
-
-                            placeHolder += 1;
-                            Console.Write('|');
-                        }
-
-                        if (map[i, j] == '`')
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        if (map[i, j] == '~')
-                        {
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-
-                        if (map[i, j] == '*')
-                        {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        if (map[i, j] == '^')
-                        {
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-
-                        }
-
-
-
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(data[i][j]);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        
                     }
-                    Console.Write('|');
-                    for (int j = 0; j < map.GetLength(1); j++)
+                    if (data[i][j] == '~')
                     {
-
-
-                        if (j == 0)
-                        {
-                            Console.SetCursorPosition(0, placeHolder);
-                            Console.Write('|');
-                            placeHolder += 1;
-
-                        }
-
-                        if (map[i, j] == '`')
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        if (map[i, j] == '~')
-                        {
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-
-                        if (map[i, j] == '*')
-                        {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-                        if (map[i, j] == '^')
-                        {
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(map[i, j]);
-                            Console.Write(map[i, j]);
-
-                        }
-
-
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write(data[i][j]);
+                        border.Add((j + 1, i + 1));
+                        Console.ForegroundColor = ConsoleColor.White;
+                        
                     }
+                    if (data[i][j] == '*')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write(data[i][j]);
+                        border.Add((j + 1, i + 1));
+                        Console.ForegroundColor = ConsoleColor.White;
+                        
+                    }
+                    
+                    if (data[i][j] == '^')
+                    {
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write(data[i][j]);
 
-                    Console.Write('|');
+                        border.Add((j +1, i +1));
+                    }
+                    cursoerPosy += 1;
                 }
-
-                Console.SetCursorPosition(0, placeHolder);
-                Console.Write('└');
-                Console.Write(border);
-                Console.Write(border);
-                Console.Write("--┘");
-            placeHolder = 0;
-
-
+                mapPosy = 0;
+                Console.WriteLine('|');
+                //border.Add((i, cursoerPosy));
+                cursoerPosy = 0;
+            }
+            Console.Write('└');
+            for (int l = 0; l < data[0].Length; l++)
+            {
+                Console.Write('-');
+            }
+            Console.Write("┘");
         }
+
+        
 
         static void playerinput()
         {
@@ -261,108 +202,144 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         }
         static void Update()
         {
-            playerPrex = playerPosx;
-            playerPrey = playerPosy;
+            playerPrex = playerPos.Item1;
+            playerPrey = playerPos.Item2;
 
-            playerPosx += playerInputx;
-            playerPosy += playerInputy;
+            //if (playerInputx == -1)
+            //{
+            //    futureplayerPos.Item1 = playerPos.Item1 + playerInputx;
+            //}
+            //if (playerInputx == 1)
+            //{
+            //    futureplayerPos.Item1 = playerPos.Item1 + playerInputx;
+            //}
+            //if (playerInputy == -1)
+            //{
+            //    futureplayerPos.Item2 = playerPos.Item2 + playerInputy;
+            //}
+            //if (playerInputx == 1)
+            //{
+            //    futureplayerPos.Item2 = playerPos.Item2 + playerInputy;
+            //}
 
-            if (playerPosy == player_yMin)
-            {
-                playerPosy = 1;
-            }
-            if (playerPosx == player_xMin)
-            {
-                playerPosx = 1;
-            }
-            if (playerPosx == player_xMax)
-            {
-                playerPosx -= 1;
-            }
-            if (playerPosy == player_yMax)
-            {
-                playerPosy -= 1;
-            }
+            playerPos.Item1 += playerInputx;
+            playerPos.Item2 += playerInputy;
+            
+            
+            
             playerTurn = true;
             if (playerTurn == true)
             {
-                if (playerPosx == enemyPosx && playerPosy == enemyPosy)
+                if (playerPos.Item1 == enemyPosx && playerPos.Item2 == enemyPosy)
                 {
-                    playerPosy = playerPrey;
-                    playerPosx = playerPrex;
+                    playerPos.Item2 = playerPrey;
+                    playerPos.Item1 = playerPrex;
                     enemyHealth -= 1;
                     
+                    
                 }
+                //if ( '|' == futureplayerPos.Item1)
+                //{
+
+                //    playerPos.Item1 = playerPrex;
+                //}
+                //if ('|' == futureplayerPos.Item2)
+                //{
+
+                //    playerPos.Item2 = playerPrey;
+                //}
+                
+
             }
 
             if (turns == 2)
             {
                 enemyTurn = true;
-                enemymovement();
+                //enemymovement();
                 playerTurn = false;
             }
             if (playerTurn == true)
             {
-                if (playerPosx == enemyPosx && playerPosy == enemyPosy)
+                if (playerPos.Item1 == enemyPosx && playerPos.Item2 == enemyPosy)
                 {
-                    playerPosy = playerPrey;
-                    playerPosx = playerPrex;
+                    playerPos.Item2 = playerPrey;
+                    playerPos.Item1 = playerPrex;
                     enemyHealth -= 1;
                 }
+                //if ('|' == futureplayerPos.Item1)
+                //{
+
+                //    playerPos.Item1 = playerPrex;
+                //}
+                //if ('|' == futureplayerPos.Item2)
+                //{
+
+                //    playerPos.Item2 = playerPrey;
+                //}
+                if (border.Contains(playerPos))
+                {
+                    playerPos.Item2 = playerPrey;
+                    playerPos.Item1 = playerPrex;
+                }
+
             }
-            
 
 
+            if (border.Contains(playerPos))
+            {
+                playerPos.Item2 = playerPrey;
+                playerPos.Item1 = playerPrex;
+            }
 
         }
         static void Draw()
         {
 
             Console.SetCursorPosition(0, 0);
-            Display();
-            Console.SetCursorPosition(playerPosx, playerPosy);
+            MapDisplay();
+            Console.SetCursorPosition(playerPos.Item1, playerPos.Item2);
             //waterPos();
             Console.Write('o');
             Console.SetCursorPosition(enemyPosx, enemyPosy);
             Console.Write("x");
 
         }
-        static void enemymovement()
-        {
-            enemyPrex = enemyPosx;
-            enemyPrey = enemyPosy;
-            if (enemyPosx > playerPosx)
-            {
-                enemyPosx -= 1;
-            }
-            if (enemyPosx < playerPosx)
-            {
-                enemyPosx += 1;
-            }
-            if ( enemyPosy > playerPosy)
-            {
-                enemyPosy -= 1;
-            }
-            if (enemyPosy < playerPosy)
-            {
-                enemyPosy += 1;
-            }
+        //static void enemymovement()
+        //{
+        //    enemyPrex = enemyPosx;
+        //    enemyPrey = enemyPosy;
+        //    if (enemyPosx > playerPos.Item1)
+        //    {
+        //        enemyPosx -= 1;
+        //    }
+        //    if (enemyPosx < playerPos.Item1)
+        //    {
+        //        enemyPosx += 1;
+        //    }
+        //    if ( enemyPosy > playerPos.Item2)
+        //    {
+        //        enemyPosy -= 1;
+        //    }
+        //    if (enemyPosy < playerPos.Item2)
+        //    {
+        //        enemyPosy += 1;
+        //    }
             
-            if (enemyTurn == true)
-            {
-                if (enemyPosy == playerPosy && enemyPosx == playerPosx)
-                {
-                    enemyPosx = enemyPrex;
-                    enemyPosy = enemyPrey;
-                    playerHealth -= 1;
-                }
-            }
+        //    if (enemyTurn == true)
+        //    {
+        //        if (enemyPosy == playerPos.Item2 && enemyPosx == playerPos.Item1)
+        //        {
+        //            enemyPosx = enemyPrex;
+        //            enemyPosy = enemyPrey;
+        //            playerHealth -= 1;
+        //        }
+        //    }
             
-            turns = 0;
-        }
+        //    turns = 0;
+        //}
         //static void waterPos()
         //{
-        //    if(playerPosy == water)
+        //    if(playerPos.Item2 == water)
         //    {
         //        if (playerPosx == water)
         //        {
