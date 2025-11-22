@@ -92,22 +92,27 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static void MapDisplay()
         {
+            int bottem = 0;
             int mapPosy = 0;
             int mapPosx = 0;
             Console.Write('┌');
             for (int l = 0; l < data[0].Length; l++) 
-            { 
+            {
+                border.Add((l, mapPosy));
                 Console.Write('-');
+                
             }
             Console.Write("┐");
             Console.WriteLine(" ");
             for (int i = 0; i < data.GetLength(0); i++)
             {
                 mapPosx += 1;
-                //border.Add((i, cursoerPosy));
+                
+                border.Add((cursoerPosy, i));
                 Console.Write('|');
                 for (int j = 0; j < data[i].Length; j++)
                 {
+                    
                     mapPosy += 1;
                     if (data[i][j] == '`')
                     {
@@ -140,11 +145,23 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
                         border.Add((j +1, i +1));
                     }
+                    if (mapPosx == data.GetLength(0))
+                    {
+                        for (int l = 0; l < data[0].Length; l++)
+                        {
+                            border.Add((bottem, mapPosx+1));
+                            bottem += 1;
+
+                        }
+                        
+                    }
+                         
+                    
                     cursoerPosy += 1;
                 }
                 mapPosy = 0;
                 Console.WriteLine('|');
-                //border.Add((i, cursoerPosy));
+                border.Add((cursoerPosy+1, i));
                 cursoerPosy = 0;
             }
             Console.Write('└');
