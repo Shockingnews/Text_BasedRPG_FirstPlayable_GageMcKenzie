@@ -13,10 +13,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static string path = @"Map.txt";
         static string[] data = File.ReadAllLines(path);
 
-        static int player_yMax = 25;
-        static int player_yMin = 0;
-        static int player_xMax = 61;
-        static int player_xMin = 0;
+        
 
         static bool alive = true;
         static bool enemy1alive = true;
@@ -26,8 +23,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static int cursoerPosy;
         static (int, int) playerPos = (5, 6);
-        static int playerPosx = 4;
-        static int playerPosy = 6;
+        
         static int playerInputx = 0;
         static int playerInputy = 0;
         static int enemy1Posx = 10;
@@ -37,8 +33,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int turns = 0;
         static int playerPrex = playerPos.Item1;
         static int playerPrey = playerPos.Item2;
-        static int futureplayerPos;
-        static int futureplayerPosx;
+        
         static int enemy1Prex = enemy1Posx;
         static int enemy1Prey = enemy1Posy;
         static int enemy2Prex = enemy2Posx;
@@ -47,35 +42,17 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int enemy1Health = 10;
         static int enemy2Health = 20;
 
-        static int placeHolder = 0;
-
-        static char water = '~';
+        
 
         static List<(int, int)> border = new List<(int, int)>();
         static List<(int, int)> money = new List<(int, int)>();
         static List<(int, int)> damageMarker = new List<(int, int)>();
-        static List<string> replacementMapString = new List<string>();
-        static char[] replacementMapChar;
+        static List<(int, int)> test = new List<(int, int)>();
 
 
 
-        static char[,] map = new char[,] // dimensions defined by following data:
-    {
 
-        {'^','^','^','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
-        {'^','^','`','`','`','`','*','*','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','~','~','`','`','`',},
-        {'^','^','`','`','`','*','*','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','~','~','~','`','`','`','`','`',},
-        {'^','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
-        {'`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
-        {'`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
-        {'`','`','`','~','~','~','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','`','`','`','`','`','`',},
-        {'`','`','`','`','`','~','~','~','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','^','^','`','`','`','`','`',},
-        {'`','`','`','`','`','~','~','~','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','^','^','^','^','`','`','`',},
-        {'`','`','`','`','`','`','`','~','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
-        {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
-        {'`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`','`',},
 
-    };
         static void Main(string[] args)
         {
             //Console.WriteLine(map.GetLength(1)*2);
@@ -135,6 +112,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             {
                 mapPosx += 1;
                 
+
                 border.Add((cursoerPosy, i));
                 border.Add((cursoerPosy, i+1));
                 Console.Write('|');
@@ -151,10 +129,20 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                     }
                     if (data[i][j] == '+')
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write(data[i][j]);
-                        money.Add((j + 1, i + 1));
-                        Console.ForegroundColor = ConsoleColor.White;
+                        if (test.Contains(playerPos))
+                        {
+                            Console.SetCursorPosition(test[0].Item1, test[0].Item2);
+                            Console.Write('`');
+                            
+
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write(data[i][j]);
+                            money.Add((j + 1, i + 1));
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
 
                     }
                     if (data[i][j] == '~')
@@ -213,8 +201,10 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             for (int l = 0; l < data[0].Length; l++)
             {
                 Console.Write('-');
+                
             }
             Console.Write("┘");
+            
         }
 
         
@@ -267,22 +257,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             playerPrex = playerPos.Item1;
             playerPrey = playerPos.Item2;
 
-            //if (playerInputx == -1)
-            //{
-            //    futureplayerPos.Item1 = playerPos.Item1 + playerInputx;
-            //}
-            //if (playerInputx == 1)
-            //{
-            //    futureplayerPos.Item1 = playerPos.Item1 + playerInputx;
-            //}
-            //if (playerInputy == -1)
-            //{
-            //    futureplayerPos.Item2 = playerPos.Item2 + playerInputy;
-            //}
-            //if (playerInputx == 1)
-            //{
-            //    futureplayerPos.Item2 = playerPos.Item2 + playerInputy;
-            //}
+            
 
             playerPos.Item1 += playerInputx;
             playerPos.Item2 += playerInputy;
@@ -308,16 +283,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
 
                 }
-                //if ( '|' == futureplayerPos.Item1)
-                //{
-
-                //    playerPos.Item1 = playerPrex;
-                //}
-                //if ('|' == futureplayerPos.Item2)
-                //{
-
-                //    playerPos.Item2 = playerPrey;
-                //}
+                
 
 
             }
@@ -342,16 +308,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                     playerPos.Item1 = playerPrex;
                     enemy2Health -= 1;
                 }
-                //if ('|' == futureplayerPos.Item1)
-                //{
-
-                //    playerPos.Item1 = playerPrex;
-                //}
-                //if ('|' == futureplayerPos.Item2)
-                //{
-
-                //    playerPos.Item2 = playerPrey;
-                //}
+                
                 if (border.Contains(playerPos))
                 {
                     playerPos.Item2 = playerPrey;
@@ -362,20 +319,13 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                     playerHealth -= 1;
                 }
                 
-                //if (money.Contains(playerPos)) 
-                //{
-                //    int indexMap = Array.IndexOf(data, '+');
+                if (money.Contains(playerPos)) 
+                {
+                   test.Add(playerPos);
+                   //money.Remove(playerPos);
                     
-                //    replacementMapString.Add(data[indexMap]);
-                //    replacementMapChar = replacementMapString[0].ToCharArray();
-                //    int indexMapChar = Array.IndexOf(replacementMapChar, '+');
-                //    replacementMapChar[indexMapChar] = '`';
-                //    string test = replacementMapChar.ToString();
-                //    replacementMapString.Remove(data[indexMap]);
-                //    replacementMapString.Add(test);
-                //    data[indexMap] = replacementMapString[0];
-                //}
-
+                }
+                
             }
             if (damageMarker.Contains(playerPos))
             {
