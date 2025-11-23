@@ -19,6 +19,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int player_xMin = 0;
 
         static bool alive = true;
+        static bool enemy1alive = true;
+        static bool enemy2alive = true;
         static bool playerTurn;
         static bool enemyTurn;
 
@@ -28,24 +30,32 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int playerPosy = 6;
         static int playerInputx = 0;
         static int playerInputy = 0;
-        static int enemyPosx = 10;
-        static int enemyPosy = 10;
+        static int enemy1Posx = 10;
+        static int enemy1Posy = 10;
+        static int enemy2Posx = 20;
+        static int enemy2Posy = 20;
         static int turns = 0;
         static int playerPrex = playerPos.Item1;
         static int playerPrey = playerPos.Item2;
         static int futureplayerPos;
         static int futureplayerPosx;
-        static int enemyPrex = enemyPosx;
-        static int enemyPrey = enemyPosy;
+        static int enemy1Prex = enemy1Posx;
+        static int enemy1Prey = enemy1Posy;
+        static int enemy2Prex = enemy2Posx;
+        static int enemy2Prey = enemy2Posy;
         static int playerHealth = 10;
-        static int enemyHealth = 10;
+        static int enemy1Health = 10;
+        static int enemy2Health = 20;
 
         static int placeHolder = 0;
 
         static char water = '~';
 
         static List<(int, int)> border = new List<(int, int)>();
-
+        static List<(int, int)> money = new List<(int, int)>();
+        static List<(int, int)> damageMarker = new List<(int, int)>();
+        static List<string> replacementMapString = new List<string>();
+        static char[] replacementMapChar;
 
 
 
@@ -77,15 +87,32 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
             Console.CursorVisible = false;
             Draw();
-            while (alive)
-            {
-                playerinput();
-                Update();
-                Draw();
+            
+            
+                while (alive)
+                {
+                if (enemy1alive == true || enemy2alive == true) 
+                {
+                    playerinput();
+                    Update();
+                    Draw();
+                }
+
+                if (enemy1alive == false && enemy2alive == false)
+                { 
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("You Win");
+                }
 
 
 
-            }
+
+                }
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("You Lose");
+
 
 
         }
@@ -109,6 +136,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                 mapPosx += 1;
                 
                 border.Add((cursoerPosy, i));
+                border.Add((cursoerPosy, i+1));
                 Console.Write('|');
                 for (int j = 0; j < data[i].Length; j++)
                 {
@@ -120,6 +148,14 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                         Console.Write(data[i][j]);
                         Console.ForegroundColor = ConsoleColor.White;
                         
+                    }
+                    if (data[i][j] == '+')
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write(data[i][j]);
+                        money.Add((j + 1, i + 1));
+                        Console.ForegroundColor = ConsoleColor.White;
+
                     }
                     if (data[i][j] == '~')
                     {
@@ -137,7 +173,15 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                         Console.ForegroundColor = ConsoleColor.White;
                         
                     }
-                    
+                    if (data[i][j] == '_')
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write(data[i][j]);
+                        damageMarker.Add((j + 1, i + 1));
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                    }
+
                     if (data[i][j] == '^')
                     {
                         Console.ForegroundColor = ConsoleColor.White;
@@ -161,7 +205,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                 }
                 mapPosy = 0;
                 Console.WriteLine('|');
-                border.Add((cursoerPosy+1, i));
+                border.Add((cursoerPosy + 1, i));
+                border.Add((cursoerPosy + 1, i+1));
                 cursoerPosy = 0;
             }
             Console.Write('└');
@@ -247,13 +292,21 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             playerTurn = true;
             if (playerTurn == true)
             {
-                if (playerPos.Item1 == enemyPosx && playerPos.Item2 == enemyPosy)
+                if (playerPos.Item1 == enemy1Posx && playerPos.Item2 == enemy1Posy)
                 {
                     playerPos.Item2 = playerPrey;
                     playerPos.Item1 = playerPrex;
-                    enemyHealth -= 1;
+                    enemy1Health -= 1;
                     
                     
+                }
+                if (playerPos.Item1 == enemy2Posx && playerPos.Item2 == enemy2Posy)
+                {
+                    playerPos.Item2 = playerPrey;
+                    playerPos.Item1 = playerPrex;
+                    enemy2Health -= 1;
+
+
                 }
                 //if ( '|' == futureplayerPos.Item1)
                 //{
@@ -265,23 +318,29 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
                 //    playerPos.Item2 = playerPrey;
                 //}
-                
+
 
             }
 
             if (turns == 2)
             {
                 enemyTurn = true;
-                //enemymovement();
+                enemymovement();
                 playerTurn = false;
             }
             if (playerTurn == true)
             {
-                if (playerPos.Item1 == enemyPosx && playerPos.Item2 == enemyPosy)
+                if (playerPos.Item1 == enemy1Posx && playerPos.Item2 == enemy1Posy)
                 {
                     playerPos.Item2 = playerPrey;
                     playerPos.Item1 = playerPrex;
-                    enemyHealth -= 1;
+                    enemy1Health -= 1;
+                }
+                if (playerPos.Item1 == enemy2Posx && playerPos.Item2 == enemy2Posy)
+                {
+                    playerPos.Item2 = playerPrey;
+                    playerPos.Item1 = playerPrex;
+                    enemy2Health -= 1;
                 }
                 //if ('|' == futureplayerPos.Item1)
                 //{
@@ -298,75 +357,180 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                     playerPos.Item2 = playerPrey;
                     playerPos.Item1 = playerPrex;
                 }
+                if (damageMarker.Contains(playerPos))
+                {
+                    playerHealth -= 1;
+                }
+                
+                //if (money.Contains(playerPos)) 
+                //{
+                //    int indexMap = Array.IndexOf(data, '+');
+                    
+                //    replacementMapString.Add(data[indexMap]);
+                //    replacementMapChar = replacementMapString[0].ToCharArray();
+                //    int indexMapChar = Array.IndexOf(replacementMapChar, '+');
+                //    replacementMapChar[indexMapChar] = '`';
+                //    string test = replacementMapChar.ToString();
+                //    replacementMapString.Remove(data[indexMap]);
+                //    replacementMapString.Add(test);
+                //    data[indexMap] = replacementMapString[0];
+                //}
 
             }
-
+            if (damageMarker.Contains(playerPos))
+            {
+                playerHealth -= 1;
+            }
 
             if (border.Contains(playerPos))
             {
                 playerPos.Item2 = playerPrey;
                 playerPos.Item1 = playerPrex;
             }
+            if(playerHealth <= 0)
+            {
+                playerHealth = 0;
+                alive = false;
+            }
 
         }
         static void Draw()
         {
-
+            Console.Clear();
             Console.SetCursorPosition(0, 0);
             MapDisplay();
             Console.SetCursorPosition(playerPos.Item1, playerPos.Item2);
-            //waterPos();
             Console.Write('o');
-            Console.SetCursorPosition(enemyPosx, enemyPosy);
-            Console.Write("x");
+            enemysAlive();
+            Console.SetCursorPosition(1, 26);
+            PlayerHUD();
+        }
+        static void PlayerHUD()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Player Health: {playerHealth} ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Enemy one Health: {enemy1Health} ");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"Enemy two Health: {enemy2Health} ");
+            Console.ForegroundColor = ConsoleColor.White;
+            
+        }
+        static void enemysAlive() 
+        {
+            if (enemy1Health <= 0) 
+            {
+                enemy1Health = 0;
+                enemy1alive = false;
+                
+            }
+            if (enemy2Health <= 0)
+            {
+                enemy2Health = 0;
+                enemy1alive = false;
+                
+            }
+            else
+            {
+                Console.SetCursorPosition(enemy1Posx, enemy1Posy);
+                Console.Write("x");
+                Console.SetCursorPosition(enemy2Posx, enemy2Posy);
+                Console.Write("x");
+            }
 
         }
-        //static void enemymovement()
-        //{
-        //    enemyPrex = enemyPosx;
-        //    enemyPrey = enemyPosy;
-        //    if (enemyPosx > playerPos.Item1)
-        //    {
-        //        enemyPosx -= 1;
-        //    }
-        //    if (enemyPosx < playerPos.Item1)
-        //    {
-        //        enemyPosx += 1;
-        //    }
-        //    if ( enemyPosy > playerPos.Item2)
-        //    {
-        //        enemyPosy -= 1;
-        //    }
-        //    if (enemyPosy < playerPos.Item2)
-        //    {
-        //        enemyPosy += 1;
-        //    }
-            
-        //    if (enemyTurn == true)
-        //    {
-        //        if (enemyPosy == playerPos.Item2 && enemyPosx == playerPos.Item1)
-        //        {
-        //            enemyPosx = enemyPrex;
-        //            enemyPosy = enemyPrey;
-        //            playerHealth -= 1;
-        //        }
-        //    }
-            
-        //    turns = 0;
-        //}
-        //static void waterPos()
-        //{
-        //    if(playerPos.Item2 == water)
-        //    {
-        //        if (playerPosx == water)
-        //        {
-        //            Console.ReadKey(true);
-        //            Console.Clear();
-        //            Console.Write("hi");
-        //        }
-        //    }
-            
-        //}
+        static void enemymovement()
+        {
+            enemy1Prex = enemy1Posx;
+            enemy1Prey = enemy1Posy;
+            enemy2Prex = enemy2Posx;
+            enemy2Prey = enemy2Posy;
+            if (enemy1Posx > playerPos.Item1)
+            {
+                enemy1Posx -= 1;
+            }
+            if (enemy1Posx < playerPos.Item1)
+            {
+                enemy1Posx += 1;
+            }
+            if ( enemy1Posy > playerPos.Item2)
+            {
+                enemy1Posy -= 1;
+            }
+            if (enemy1Posy < playerPos.Item2)
+            {
+                enemy1Posy += 1;
+            }
+            if (border.Contains((enemy1Posx,enemy1Posy)))
+            {
+                enemy1Posx = enemy1Prex;
+                enemy1Posy = enemy1Prey;
+            }
+            if (border.Contains((enemy1Posx, enemy1Posy)))
+            {
+                enemy1Health -= 1;
+            }
+
+            if (enemyTurn == true)
+            {
+                if (enemy1Posy == playerPos.Item2 && enemy1Posx == playerPos.Item1)
+                {
+                    enemy1Posx = enemy1Prex;
+                    enemy1Posy = enemy1Prey;
+                    playerHealth -= 1;
+                }
+                if (enemy1Posy == enemy2Posy && enemy1Posx == enemy2Posx)
+                {
+                    enemy1Posx = enemy1Prex;
+                    enemy1Posy = enemy1Prey;
+                    
+                }
+            }
+            if (enemy2Posx > playerPos.Item1)
+            {
+                enemy2Posx -= 1;
+            }
+            if (enemy2Posx < playerPos.Item1)
+            {
+                enemy2Posx += 1;
+            }
+            if (enemy2Posy > playerPos.Item2)
+            {
+                enemy2Posy -= 1;
+            }
+            if (enemy2Posy < playerPos.Item2)
+            {
+                enemy2Posy += 1;
+            }
+            if (border.Contains((enemy2Posx, enemy2Posy)))
+            {
+                enemy2Posx = enemy2Prex;
+                enemy2Posy = enemy2Prey;
+            }
+            if (border.Contains((enemy2Posx, enemy2Posy)))
+            {
+                enemy2Health -= 1;
+            }
+            if (enemyTurn == true)
+            {
+                if (enemy2Posy == playerPos.Item2 && enemy2Posx == playerPos.Item1)
+                {
+                    enemy2Posx = enemy2Prex;
+                    enemy2Posy = enemy2Prey;
+                    playerHealth -= 1;
+
+                }
+                if (enemy1Posy == enemy2Posy && enemy1Posx == enemy2Posx)
+                {
+                    enemy2Posx = enemy2Prex;
+                    enemy2Posy = enemy2Prey;
+
+                }
+
+            }
+            turns = 0;
+        }
+        
 
 
     }
