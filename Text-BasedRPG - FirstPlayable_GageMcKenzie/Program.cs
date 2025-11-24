@@ -13,7 +13,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static string path = @"Map.txt";
         static string[] data = File.ReadAllLines(path);
 
-        
+
 
         static bool alive = true;
         static bool enemy1alive = true;
@@ -23,17 +23,17 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
 
         static int cursoerPosy;
         static (int, int) playerPos = (5, 6);
-        
+
         static int playerInputx = 0;
         static int playerInputy = 0;
-        static int enemy1Posx = 10;
-        static int enemy1Posy = 10;
+        static int enemy1Posx = 17;
+        static int enemy1Posy = 15;
         static int enemy2Posx = 20;
         static int enemy2Posy = 20;
         static int turns = 0;
         static int playerPrex = playerPos.Item1;
         static int playerPrey = playerPos.Item2;
-        
+
         static int enemy1Prex = enemy1Posx;
         static int enemy1Prey = enemy1Posy;
         static int enemy2Prex = enemy2Posx;
@@ -41,13 +41,18 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int playerHealth = 10;
         static int enemy1Health = 10;
         static int enemy2Health = 20;
+        static int coinscollected = 0;
 
-        
+
+
+
 
         static List<(int, int)> border = new List<(int, int)>();
-        static List<(int, int)> money = new List<(int, int)>();
+        static List<(int, int)> money = new List<(int, int)>()
+            {(24, 7),(8, 23),(48, 1),(30, 10),(50, 24)};
+        
         static List<(int, int)> damageMarker = new List<(int, int)>();
-        static List<(int, int)> test = new List<(int, int)>();
+        static List<bool> collected = new List<bool>();
 
 
 
@@ -57,10 +62,14 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         {
             //Console.WriteLine(map.GetLength(1)*2);
             //Console.WriteLine(map.GetLength(0) * 2);
+            collected.Add(false);
+            collected.Add(false);
+            collected.Add(false);
+            collected.Add(false);
+            collected.Add(false);
             
             
-            
-            
+
 
             Console.CursorVisible = false;
             Draw();
@@ -127,24 +136,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                         Console.ForegroundColor = ConsoleColor.White;
                         
                     }
-                    if (data[i][j] == '+')
-                    {
-                        if (test.Contains(playerPos))
-                        {
-                            Console.SetCursorPosition(test[0].Item1, test[0].Item2);
-                            Console.Write('`');
-                            
-
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            Console.Write(data[i][j]);
-                            money.Add((j + 1, i + 1));
-                            Console.ForegroundColor = ConsoleColor.White;
-                        }
-
-                    }
+                    
                     if (data[i][j] == '~')
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
@@ -318,14 +310,45 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                 {
                     playerHealth -= 1;
                 }
-                
-                if (money.Contains(playerPos)) 
+
+                if(money.Contains(playerPos))
                 {
-                   test.Add(playerPos);
-                   //money.Remove(playerPos);
-                    
+                    for (int i = 0; i < money.Count(); i++)
+                    {
+                        
+                            if (money[i] == (playerPos))
+                            {
+
+
+                                
+                                
+                                
+                                    money.Remove(playerPos);
+                                    collected.Remove(collected[i]);
+                                    coinscollected += 1;
+
+
+
+
+
+                        }
+                        
+                        
+                    }
+
                 }
+
                 
+                
+                
+
+                
+                
+
+
+
+
+
             }
             if (damageMarker.Contains(playerPos))
             {
@@ -342,6 +365,8 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
                 playerHealth = 0;
                 alive = false;
             }
+            
+            
 
         }
         static void Draw()
@@ -349,16 +374,39 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
             Console.Clear();
             Console.SetCursorPosition(0, 0);
             MapDisplay();
+            moneytester();
             Console.SetCursorPosition(playerPos.Item1, playerPos.Item2);
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write('o');
             enemysAlive();
             Console.SetCursorPosition(1, 26);
             PlayerHUD();
         }
+        static void moneytester()
+        {
+            
+            for (int i = 0; i < money.Count(); i++)
+            {
+                
+                    if (collected[i] == false)
+                    {
+
+                        Console.SetCursorPosition(money[i].Item1, money[i].Item2);
+
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write('+');
+                    }
+                
+            }
+
+            
+        }
         static void PlayerHUD()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Player Health: {playerHealth} ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write($"Player Health: {playerHealth} ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"Coins: {coinscollected}");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Enemy one Health: {enemy1Health} ");
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -368,23 +416,26 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         }
         static void enemysAlive() 
         {
-            if (enemy1Health <= 0) 
+            if (enemy1Health <= 0 || coinscollected == 5) 
             {
                 enemy1Health = 0;
                 enemy1alive = false;
                 
             }
-            if (enemy2Health <= 0)
+            if (enemy2Health <= 0 || coinscollected == 5)
             {
                 enemy2Health = 0;
-                enemy1alive = false;
+                enemy2alive = false;
                 
             }
             else
             {
+
                 Console.SetCursorPosition(enemy1Posx, enemy1Posy);
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("x");
                 Console.SetCursorPosition(enemy2Posx, enemy2Posy);
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.Write("x");
             }
 
