@@ -38,7 +38,7 @@ namespace Text_BasedRPG___FirstPlayable_GageMcKenzie
         static int enemy1Prey = enemy1Posy;
         static int enemy2Prex = enemy2Posx;
         static int enemy2Prey = enemy2Posy;
-        static int playerHealth = 10;
+        static int playerHealth = 30;
         static int enemy1Health = 10;
         static int enemy2Health = 20;
         static int coinscollected = 0;

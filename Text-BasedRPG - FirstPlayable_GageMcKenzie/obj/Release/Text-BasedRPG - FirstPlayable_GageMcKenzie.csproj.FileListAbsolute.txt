@@ -6,3 +6,11 @@ C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - First
 C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj.CoreCompileInputs.cache
 C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe
 C:\Users\w0526843\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.pdb
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Release\Map.txt
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe.config
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\bin\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.pdb
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj.AssemblyReference.cache
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.csproj.CoreCompileInputs.cache
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.exe
+C:\Users\mgc72\Documents\unity project\Text_BasedRPG_FirstPlayable_GageMcKenzie\Text-BasedRPG - FirstPlayable_GageMcKenzie\obj\Release\Text-BasedRPG - FirstPlayable_GageMcKenzie.pdb
